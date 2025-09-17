@@ -80,10 +80,6 @@ import Box from '@mui/material/Box';
 
 const Details = ({ course, user }) => {
 	
-
-	
-
-
 	const [oneCourse, setoneCourse] = React.useState([]);
     const [subjects, setSubjects] = React.useState([]);
     const [childsubjects, setchildSubjects] = React.useState([]);

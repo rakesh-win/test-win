@@ -4,46 +4,19 @@ import axios from 'axios'
 import cookie from 'js-cookie'
 import Alert from 'react-popup-alert'
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js'
-import Preloader from '../_App/Preloader'
 import Paymentloading from '../_App/PaymentLoading'
 
-const CheckoutBtn2 = ({
-  total,
-  user,
-  price,
-  cartItems,
-  coupon,
-  disc,
-  loyalPointsInputos
-}) => {
+const CheckoutBtn2 = ({ total, user, price, cartItems, coupon, disc }) => {
+  // console.log("price",price,'\n','disc',disc,'\n','coupon',coupon);
+  // console.log('total',total)
   const router = useRouter()
+
   const [showButton, setShowButton] = useState(false)
   const [headertext, setHeadertext] = useState(0)
   const [btntext, setBtntext] = useState(0)
   const [loading, setLoading] = useState(false)
   const [examprice, setExamprice] = useState(0)
-  const [final, setfinal] = useState(0)
-  useEffect(() => {
-    // OS (USD) calculation
-    const loyaltyCartItemsOS = cartItems.filter(
-      item => item.crs_loyalty === '1'
-    )
-    const loyaltyBaseAmountOS = loyaltyCartItemsOS.reduce(
-      (acc, item) => acc + Number(item.discountedpriceos ? item.discountedpriceos : item.priceos || 0),
-      0
-    )
-    console.log('333',loyaltyBaseAmountOS)
 
-    const eligiblePointsOS = Math.min(Number(loyalPointsInputos || 0), 5000)
-    const afterPointsos = loyaltyBaseAmountOS - eligiblePointsOS
-    setfinal(afterPointsos)
-    if (final) {
-      const total = cartItems.reduce((acc, item) => {
-        return acc + Number(item.examprice || 0)
-      }, 0)
-      setExamprice(total)
-    }
-  }, [cartItems, examprice, final])
   var flag
   const [alert, setAlert] = useState({
     type: 'error',
@@ -91,9 +64,9 @@ const CheckoutBtn2 = ({
   }
 
   const initialOptions = {
+    // "client-id": "AaLOLIjqhYgVilNkU-XREXYt4yO3qgF66TWc5OKclwTEpWDgHyutJJ3qWx9nrLuGcPsd00BTdZWBbylL",    // rakesh
     'client-id':
-      'AaLOLIjqhYgVilNkU-XREXYt4yO3qgF66TWc5OKclwTEpWDgHyutJJ3qWx9nrLuGcPsd00BTdZWBbylL', // rakesh
-    // "client-id": "AT6CyAfT4dfDYk0-NCloQkmOqAvZuyQNxgqQBvKY-cXnoD6nZw4_zvQ6VnR35GEx1r57e-aQjdNTYPba",
+      'AT6CyAfT4dfDYk0-NCloQkmOqAvZuyQNxgqQBvKY-cXnoD6nZw4_zvQ6VnR35GEx1r57e-aQjdNTYPba',
     currency: 'USD',
     intent: 'capture'
   }
@@ -193,6 +166,7 @@ const CheckoutBtn2 = ({
     }
   }
   const validateusage = async () => {
+    console.log('valli')
     var formData = new FormData()
     formData.append('email', user.email)
     formData.append('mobile', user.mobile)
@@ -220,7 +194,6 @@ const CheckoutBtn2 = ({
 
   const createorder = async () => {
     const userid = localStorage.getItem('userid')
-    const points = localStorage.getItem('loyalPointsos')
 
     var formData = new FormData()
     formData.append('name', user.name)
@@ -235,9 +208,6 @@ const CheckoutBtn2 = ({
     formData.append('gst', 'null')
     formData.append('totalpayable', price)
     formData.append('paymentmode', 'Paypal')
-    formData.append('afterpoints', final - examprice)
-    formData.append('pointsused', points ? String(points) : '0')
-
     formData.append('userid', userid)
     formData.append('utm_source', cookie.get('utm_source'))
     formData.append('utm_source_current', cookie.get('utm_source_current'))
@@ -277,28 +247,7 @@ const CheckoutBtn2 = ({
     })
   }
 
-  const reducepoint = () => {
-    const points =
-      typeof window != 'undefined' && localStorage.getItem('loyalPointsos')
-
-    var formData = new FormData()
-    formData.append('email', user.email)
-    formData.append('points', points)
-
-    if (points) {
-      axios
-        .post(`${process.env.NEXT_PUBLIC_API}/reducepoints`, formData)
-        .then(res => localStorage.removeItem('loyalPointsos'))
-    }
-  }
-
   const finalizecheckout = async payid => {
-    const token = typeof window != 'undefined' && localStorage.getItem('token')
-    const points =
-      typeof window != 'undefined' && localStorage.getItem('loyalPointsos')
-    const paynow =
-      typeof window != 'undefined' && localStorage.getItem('paynowos')
-
     var abc = generateRandomString(10)
     localStorage.setItem('tmppass', abc)
 
@@ -312,12 +261,13 @@ const CheckoutBtn2 = ({
     formData.append('usermobile', user.mobile)
     formData.append('tempuid', localStorage.getItem('tempuserid'))
     formData.append('temppass', localStorage.getItem('tmppass'))
-    // formData.append('price', Number(final) - Number(examprice))
-    formData.append('price', Number(final) - Number(examprice))
-    formData.append('examprice', Number(examprice))
+    formData.append('examprice',  Number(examprice))
+
+
     localStorage.setItem('tmpemail', user.email)
 
     setLoading(true)
+
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API}/purchaseenroll`,
@@ -325,10 +275,6 @@ const CheckoutBtn2 = ({
       )
 
       if (response.status === 200 || response.status === 201) {
-        reducepoint()
-        // addpoints()
-        localStorage.setItem('free-voucher', '1')
-
         localStorage.setItem('ordstat', response.data)
         setHeadertext('Order Placed!')
         setBtntext('Continue')
@@ -342,7 +288,7 @@ const CheckoutBtn2 = ({
       console.error('Order placement failed', error)
       onShowAlert('error', 'Something went wrong. Please try again.')
     } finally {
-      setLoading(false)
+      setLoading(false) // 👉 Stop loading state no matter what
     }
   }
 
@@ -392,11 +338,7 @@ const CheckoutBtn2 = ({
       formData.append('coupon', carti.coupon)
       formData.append('discountedprice', price)
       formData.append('orderid', ordid)
-      formData.append('crs_loyalty', Number(carti.crs_loyalty))
       formData.append('cartid', carti.id)
-      formData.append('examprice', carti.examprice)
-      formData.append('crs_loyalty', Number(carti.crs_loyalty))
-
       if (localStorage.getItem('userid')) {
         formData.append('user_id', localStorage.getItem('userid'))
       }
@@ -417,10 +359,10 @@ const CheckoutBtn2 = ({
         })
     })
   }
-
   return (
     <div>
       {loading ? <Paymentloading /> : ''}
+
       <Alert
         header={headertext}
         btnText={btntext}
@@ -451,7 +393,7 @@ const CheckoutBtn2 = ({
               createOrder={(data, actions) => {
                 createorder()
                 return actions.order.create({
-                  purchase_units: [{ amount: { value: final ? final : price } }]
+                  purchase_units: [{ amount: { value: price } }]
                 })
               }}
               onApprove={async (data, actions) => {
@@ -467,7 +409,8 @@ const CheckoutBtn2 = ({
       </div>
       <div style={{ display: price === 0 ? 'block' : 'none' }}>
         <button onClick={proceed2} className='default-btn'>
-          submit and enroll
+          {' '}
+          submit and enroll{' '}
         </button>
       </div>
     </div>

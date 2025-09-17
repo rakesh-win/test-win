@@ -1,86 +1,76 @@
-import React, { useState, useEffect } from 'react'
-import PageBanner from '../components/Common/PageBanner'
-import FreeVoucher from '@/components/My-Profiles/FreeVoucher'
-import { makeid } from '@/utils/makeid'
-import ThankYouCard from './thankyou'
+import React, { useState, useEffect } from "react";
+// import Navbar from '../components/_App/Navbar';
+import PageBanner from '../components/Common/PageBanner';
+// import Footer from '../components/_App/Footer';
+import Link from "@/utils/ActiveLink";
 
 const OrderReceived = () => {
-  const [msg, setMsg] = useState(0)
-  const [pass, setPass] = useState(0)
-  const [mail, setMail] = useState(0)
-  const [free, setFree] = useState(0)
-  const [vcode, setCode] = useState('')
 
-  useEffect(() => {
-    setMsg(localStorage.getItem('ordstat'))
-    setPass(localStorage.getItem('tmppass'))
-    setMail(localStorage.getItem('tmpemail'))
-    setFree(localStorage.getItem('free-voucher'))
-  }, [])
+const [msg, setMsg] = useState(0);
+const [pass, setPass] = useState(0);
+const [mail, setMail] = useState(0);
 
-  useEffect(() => {
-    if (free === '1' && mail) {
-      const firstThree = mail.slice(0, 3).toUpperCase()
-      const today = new Date()
-      const ddmm = `${String(today.getDate()).padStart(2, '0')}${String(
-        today.getMonth() + 1
-      ).padStart(2, '0')}`
-      const texts = makeid(9).toUpperCase()
-      const voucher = `${firstThree}-${ddmm}-${texts}`
-      setCode(voucher)
-      console.log('vcode', voucher)
-    }
+ 
+    useEffect(() => {
 
-    return () => {
-      setCode('')
-      localStorage.removeItem('free-voucher')
-    }
-  }, [free, mail])
+       setMsg(localStorage.getItem('ordstat'));
+       setPass(localStorage.getItem('tmppass'));
+       setMail(localStorage.getItem('tmpemail'));
+       
 
-  return (
-    <React.Fragment>
-      <PageBanner
-        homePageUrl='/'
-        homePageText='Home'
-        activePageText='Order Received'
-      />
+    }, []);
 
-      <div
-        style={{
-          width: '100%',
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '20px'
-        }}
-      >
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '40px',
-            alignItems: 'stretch'
-          }}
-        >
-          {/* Left column - ThankYou component */}
-          <ThankYouCard msg={msg} mail={mail} pass={pass} />
 
-          {/* Right column - voucher card */}
-          <div style={{ width: '100%', height: '100%' }}>
-            <FreeVoucher free={free} voucherCode={vcode} />
-          </div>
-        </div>
-      </div>
+    return (
+        <React.Fragment>
+            {/* <Navbar /> */}
+            <PageBanner 
+                homePageUrl="/" 
+                homePageText="Home" 
+                activePageText="Order Received" 
+            />  
+            
 
-      {/* Inline responsive fix */}
-      <style>{`
-        @media (max-width: 768px) {
-          div[style*="grid-template-columns: 1fr 1fr"] {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
-    </React.Fragment>
-  )
+
+             <div className="features-area ptbpage">
+                <div className="container">
+                    <div className="section-title" style={{"max-width": "1200px"}}>
+                        <h2 style={{"max-width": "1200px"}}>Thank you for your order</h2>
+                        <p style={{marginTop:'40px'}}>We have received your order successfully.</p>
+
+                        <p style={{display: (msg === 'Existing email id found. Purchased courses are assigned to the same')? 'flex' : 'none'}}>
+                            We have found an existing email id: {mail}. Purchased course access has been assigned to this email id. Please login and continue your learning journey!
+                        </p>
+
+
+                        <p style={{display: (msg === 'New user created & Course assigned')? 'flex' : 'none'}}>
+                            We have created a new account with your email id: {mail}. Purchased course access has been assigned to this email id. 
+                        </p>
+
+                        <p style={{display: (msg === 'New user created & Course assigned')? 'flex' : 'none'}}>
+                           Please use this email and password: {pass} to login and continue your learning journey!
+                        </p>
+
+                        <p style={{display: (msg === 'enrollstats created for existing user')? 'flex' : 'none'}}>
+                           Purchased course access has been assigned. 
+                           Please visit your Profile and continue your learning journey!
+                         </p>
+
+                         <p style={{display: (msg === 'enrollstats created for existing user')? 'flex' : 'none'}}><a href="/user/my-profile">Visit your Profile </a> </p>
+
+
+
+
+                       
+
+                    </div>
+
+                </div>
+            </div>
+
+          
+        </React.Fragment>
+    )
 }
 
-export default OrderReceived
+export default OrderReceived;

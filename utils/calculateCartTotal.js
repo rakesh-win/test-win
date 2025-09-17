@@ -38,7 +38,7 @@ export const calculateCartTotal = (courses) => {
 	const discTotalos = ((totaldp2 * 100) / 100).toFixed(0);
 	
 	const stripeTotal = Number((total * 100).toFixed(0));
-	// console.log("cctot24",totalos,discTotalos);
+	console.log("cctot24",totalos,discTotalos);
 
 	return { cartTotal, stripeTotal, discTotal, cartTotalos, discTotalos };
 };

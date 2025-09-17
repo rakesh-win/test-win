@@ -17,7 +17,7 @@ const StudentNavbar = ({ user }) => {
 			if (window.scrollY > 170) {
 				elementId.classList.add("is-sticky");
 			} else {
-elementId.classList.remove("is-sticky");
+				elementId.classList.remove("is-sticky");
 			}
 		});
 	});

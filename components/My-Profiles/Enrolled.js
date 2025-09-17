@@ -93,8 +93,8 @@ function Enrolled({ enrolledCourses, loading2, cmpl }) {
    }
 
   return (
-<>
-  <div className="profile-tab-container row">
+    <>
+      <div className="profile-tab-container row">
         {/* Sort Button */}
         <p>
           <Button style={{ color: "black" }} onClick={handleSortOpen} endIcon={<SortIcon />}>

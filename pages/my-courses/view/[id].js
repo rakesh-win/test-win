@@ -1529,3 +1529,4 @@ SingleCourses.getInitialProps = async (ctx) => {
 
 export default SingleCourses;
 
+
