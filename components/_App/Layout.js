@@ -41,7 +41,7 @@ const Layout = ({ children, user }) => {
   }, [])
 
   useEffect(() => {
-    fetchSeoData()
+    // fetchSeoData()
   }, [router])
 
   const fetchSeoData = async () => {
