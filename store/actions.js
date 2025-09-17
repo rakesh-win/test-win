@@ -8,3 +8,4 @@ export const decrementCount = () => ({ type: types.DECREMENT });
 
 // RESET COUNTER
 export const resetCount = () => ({ type: types.RESET });
+

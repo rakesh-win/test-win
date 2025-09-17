@@ -80,7 +80,7 @@ const CoursesArea = () => {
 
 
                 <div className="row courses-mobile">
-                    {allCourses.slice(0,6).length ? allCourses.slice(0,6).map((course,index) => (
+                    {allCourses.slice(0).length ? allCourses.slice(0).map((course,index) => (
                     <div className="col-6" key={index}>
                         <div className="single-courses-item" style={{"height": "240px"}}>
                             <div className="row align-items-center">

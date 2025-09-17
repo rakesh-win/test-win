@@ -2,7 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 
 const Quizzes = () => {
+    document.getElementById("id")
     return (
+        
         <div className="profile-quizzes pb-70">
             <h3 className="title">Quizzes</h3>
             <div className="table-responsive">
@@ -18,7 +20,7 @@ const Quizzes = () => {
                     </thead>
 
                     <tbody>
-                        <tr>
+                        <tr>x``
                             <td>
                                 <Link href="#">
                                     <a>Introduction to Python for Beginners</a>

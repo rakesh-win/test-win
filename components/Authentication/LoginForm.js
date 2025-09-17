@@ -88,13 +88,8 @@ const LoginForm = () => {
  //            position: toast.POSITION.BOTTOM_CENTER
  //        });
  //    }
-
-
  const [provider, setProvider] = useState('')
-  const [profile, setProfile] = useState(null)
-
-  
-
+ const [profile, setProfile] = useState(null)
 
 const fetchData = async (e) => {
 	try {

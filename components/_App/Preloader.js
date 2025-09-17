@@ -10,7 +10,7 @@ const Preloader = () => {
                             <div><div></div><div></div><div></div></div>
                         </div>
                     </div>
-                </div>
+            </div>
             </div>
 
             <style jsx>{`

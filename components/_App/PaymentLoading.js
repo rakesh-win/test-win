@@ -10,7 +10,10 @@ const Paymentloading = () => {
                             <div><div></div><div></div><div></div></div>
                         </div>
                     </div>
-                    <p className="loading-message">Processing your payment...<br />Please do not refresh or close this page.</p>
+                    <p className="loading-message">
+  This may take up to 3 minutes. Processing your payment...<br />
+  Please do not refresh or close this page.
+</p>
                 </div>
             </div>
 

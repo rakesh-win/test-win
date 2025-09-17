@@ -62,8 +62,6 @@ const Mainmenu = () => {
                      result => {
                         setMenucatnames(result.data.data)
                 })
-
-
                const url = `https://winupskill.in/api/api/menus?type=web&sort_by=morder`
                 var response = await axios.get(url).then(
                  result => {
@@ -181,9 +179,8 @@ const Mainmenu = () => {
                     >
                     <span dangerouslySetInnerHTML={{__html: menus.tagname}} />
                     </span>
-                                    </a>
-                                </Link>
-                               ))}
+                    </a>
+                  </Link>))}
                         </ul>
                     </TabPanel>
                   
@@ -191,7 +188,7 @@ const Mainmenu = () => {
                       <ul className="menucolumcontainer"> 
                             {menuitems.map((menus, index) => (
                                 <Link 
-                                    key={index}
+                                key={menus.id || menus.mname}
                                     
                                     href={menus.mlink}
                                     activeClassName="active"
@@ -540,31 +537,3 @@ const Mainmenu = () => {
 }
 
 export default Mainmenu; 
-
-
-
-/*
-
-<Tabs
-                    orientation="vertical"
-                    value={value}
-                    onChange={handleChange}
-                    aria-label="Vertical tabs example"
-                    sx={{ borderRight: 1, borderColor: '#592a9c' }}
-                    
-                    style={{"minWidth":"375px"}}
-                  > 
-
-                    <Tab className="mainmenucat" onMouseOver={(event) => handleTabHover(event, 0)} label="IT Service Management Courses" {...a11yProps(0)} />
-                    <Tab className="mainmenucat" onMouseOver={(event) => handleTabHover(event, 1)} label="Security & Privacy Management Courses" {...a11yProps(1)} />
-                    <Tab className="mainmenucat" onMouseOver={(event) => handleTabHover(event, 2)} label="IT Governance & Resilience Courses" {...a11yProps(2)} />
-                    <Tab className="mainmenucat" onMouseOver={(event) => handleTabHover(event, 3)} label="Project, Program & Quality Management Courses" {...a11yProps(3)} />
-                    <Tab className="mainmenucat" onMouseOver={(event) => handleTabHover(event, 4)} label="Career-Path Based Courses" {...a11yProps(4)} />
-                    <Tab className="mainmenucat" onMouseOver={(event) => handleTabHover(event, 5)} label="ISO Lead Auditor / Implementer Courses" {...a11yProps(5)} />
-                    <Tab className="mainmenucat" onMouseOver={(event) => handleTabHover(event, 6)} label="Emerging Technologies Courses" {...a11yProps(6)} />
-                    <Tab className="mainmenucat" onMouseOver={(event) => handleTabHover(event, 7)} label="Free Courses" {...a11yProps(7)} />
-                    <Tab className="mainmenucat" onMouseOver={(event) => handleTabHover(event, 8)} label="Practice Papers" {...a11yProps(8)} />
-                  </Tabs>
-
-
-*/

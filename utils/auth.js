@@ -10,8 +10,8 @@ export const handleLogin = (token) => {
    cookie.set('id', token.userid);
    localStorage.setItem('token', token.token);
    localStorage.setItem('userid', token.userid);
-  
-     Router.push('/user/my-profile');
+   Router.push('/user/my-profile');
+   
 }
 
 export const redirectUser = (ctx, location) => {
@@ -24,15 +24,13 @@ export const redirectUser = (ctx, location) => {
 }
 
 export const handleLogout = () => {
-  
     localStorage.removeItem('userid');
     localStorage.removeItem('token');
     
     cookie.remove('name');
-   
     cookie.remove('token');
     cookie.remove('id');
-     window.location.reload();
+    window.location.reload();
     Router.push('/');
-   
+
 }    
