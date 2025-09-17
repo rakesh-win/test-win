@@ -1,0 +1,11 @@
+//robots.txt
+
+User-agent: *
+Disallow: /user/
+Disallow: /my-courses/
+
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.winupskill.com/sitemap.xml

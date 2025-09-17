@@ -1,0 +1,489 @@
+.postb button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #e61313;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    height:160px;
+    width:400px;
+    position: relative;
+    left:230px;
+    font-weight:bolder;
+    top:50px;
+    font-weight: bolder;
+  }
+  
+  .postb button:hover {
+    background-color: #fafafa;
+    color: #e61313;
+    border:none
+  }
+  
+  .postb button:focus {
+    outline: none;
+    box-shadow: 0 0 5px #719ECE;
+  }
+ .but12 {
+     position: relative;
+     left:240px;
+     bottom:5px
+ }
+  .container {
+    margin: 0 auto;
+    padding: 20px;
+    height:auto;
+    max-width: 800px;
+  }
+  .postb {
+       height:70vh;
+       background-color: #c9c8c8;
+  }
+  
+  .question {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .answer {
+    margin-top: 20px;
+  }
+  
+  .answer h5 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .pagination a {
+     background-color: #e61313;
+  }
+  .input-box {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-box input[type="text"] {
+    flex-grow: 1;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .input-box button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #e61313;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .input-box button:hover {
+    background-color: #3e8e41;
+  }
+  
+  .input-box button:focus {
+    outline: none;
+    box-shadow: 0 0 5px #719ECE;
+  }
+  
+  .container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+
+  
+  .button {
+    padding: 10px 20px;
+  background-color: #D0140F;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  height:50px;
+  width:200px;
+  position: relative;
+  top:30px;
+  right:60px;
+  font-weight:bolder;
+  top:14px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+    
+  }
+  
+  .button:hover {
+    background-color: #000;
+  }
+  .commentSection {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+  }
+  
+  .commentContainer {
+    background-color: #fefbfb;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+  
+  .commentHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .commentAuthor {
+    font-weight: bold;
+  }
+  
+  .commentDate {
+    color: #777;
+  }
+  
+  .commentBody {
+    margin-bottom: 10px;
+  }
+
+  .commentFooter {
+    display: flex;
+    justify-content: flex-end;
+
+  }
+  
+  .commentLink {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .commentLink:hover {
+    
+    color: #e61313;
+  }
+  /* Style for the side menu */
+.first {
+  background-color: #fff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 5px;
+  width: 15%;
+  height:510px
+}
+
+.list {
+  margin-bottom: 20px;
+}
+.list ul a {
+  font-size: x-large;
+}
+.list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  top:30px;
+  width:20%
+
+}
+
+.listt {
+    width:20%;
+    background-color: #ffffff;
+    height:auto;
+    font-size: 20px;
+
+
+}
+
+.paginationn {
+     position: relative;
+     left:600px;
+    
+}
+.paginationn a {
+    background-color: #e61313;
+    color: #f5f5f5;
+}
+.paginationn ul {
+  margin-left: 5px;
+}
+.paginationn ul li {
+    margin-left: 5px;
+}
+.listt ul li {
+       text-decoration: none;
+       list-style:none ;
+}
+
+
+.list ul a:hover {
+     font-size: 32px;
+     color: #e61313;
+}
+
+.list li {
+  margin-bottom: 10px;
+}
+
+.list a {
+  color: #444;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.list a:hover {
+  background-color: #f5f5f5;
+}
+
+.list span {
+  float: right;
+}
+
+/* Style for the icons */
+.list span svg {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.cat {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  position: relative;
+  }
+
+.cat label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.cat input[type="radio"] {
+  appearance: none;
+  border: 2px solid #333;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.cat input[type="radio"]:checked {
+  background-color: #333;
+}
+
+
+.i {
+  font-size: 500px;
+  position: relative;
+  bottom:150px
+}
+
+.cat input[type="radio"]:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.cat input[type="radio"]:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px #333;
+}
+
+.numberr  {
+
+  position: relative;
+  background-color: #e61313;
+  color: #000000;
+  border: none;
+  margin-left: 5px;
+}
+
+.forumContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.categoryContainer {
+  padding:5px 1px 0px 1px;
+
+ 
+}
+
+.categoryTitle {
+  color:#fff;
+  font:bold 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+
+.questionList {
+  display: grid;
+  gap: 5px;
+}
+
+.questionContainer {
+      background: #EEE;
+    color: #000;
+    background-image: linear-gradient(360deg, rgba(225, 225, 225, 0.8), transparent);
+    outline: #CCCCCC solid 1px;
+        height: 50px;
+            display: flex;
+    align-items: center;
+  /*background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;*/
+}
+.questionContainer:hover{
+  
+}
+
+
+.questionContainer:hover > .questionTitle{
+  text-decoration: underline;
+}
+
+.questionTitle {
+  font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+  font-weight: bold;
+      padding-left: 12px;
+     
+  /*font-size: 1.5rem;
+  margin-bottom: 10px;*/
+}
+
+.questionAnswer {
+  font-size: 1.2rem;
+  color: #777;
+}
+
+.viewAllContainer {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.viewAllLink {
+  font-size: 1.2rem;
+  
+}
+
+.buttonnn {
+  background-color: #D0140F;
+    color: #ffffff;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    /* margin-right: 10px; */
+    transition: background-color 0.2s ease;
+    /* width: 150px; */
+    height: 30px;
+    margin-bottom: 10px;
+    position: relative;
+    /* left: 8px;*/
+}
+
+.buttonnn:hover {
+  background-color: #000;
+  color:#fff;
+}
+.radiustop{
+background-color: #545252;
+  width: 90%;
+}
+.inlineitems{
+          display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+.buttonSection{
+
+}
+.spacer{
+  margin-bottom: 100px;
+}
+.spacertop{
+  margin-top: 50px;
+}
+.radiocontainer{
+text-align: left;
+}
+.radiustop2{
+    background: linear-gradient(#4C4C4C, #404040);
+    color: #fff;
+    width: 90%;
+    padding: 5px 0px 5px 10px;
+    font: bold 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+    border-radius: 8px 8px 0px 0px;
+}
+.forumContainernewtopic{
+  float: left;
+      width: 90%;
+}
+.radiocontainer select{
+      margin-left: 10px;
+    font-size: 14px;
+    padding: 5px;
+    width: 75%;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles for mobile devices */
+@media only screen and (max-width: 768px) {
+  .inlineitems{
+    display: block;
+  }
+  .buttonSection{
+    display: flex;
+    margin-left: -7px;
+  }
+  .categoryTitle{
+    font-size: 2rem;
+  }
+  .cat{
+    display: block;
+  }
+  .title{
+    margin-top: 0px;
+  }
+  .categoryTitle{
+    font-size: 12px;
+  }
+
+}

@@ -1,0 +1,92 @@
+.forumContainer {
+   margin: 0 auto;
+   padding: 30px 20px;
+   background-color: #f4f4f4;
+   border-radius: 10px;
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+   border-radius: 20px 20px 0px 0px;
+background-color: #4C4C4C;
+  width: 90%;
+ }
+ 
+ .forumContainer h2 {
+   font-size: 24px;
+   font-weight: bold;
+   margin-bottom: 20px;
+   color: #fff;
+ }
+ .pagination button {
+background-color: #ff1500;
+   border: none;
+   color: rgb(249, 249, 249);
+   cursor: pointer;
+   width:30px;
+   height:30px;
+   position: relative;
+   left:700px;
+   margin-right: 2px;
+   
+ }
+ .radiustop{
+border-radius: 20px 20px 0px 0px;
+background-color: #4C4C4C;
+  width: 90%;
+}
+ 
+ .pagination button.active {
+   font-weight: bold;
+ }
+ 
+ .questionContainer {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.questionContainer:hover{
+  background-color: #000;
+  color:#fff;
+}
+
+
+.questionContainer:hover > .questionLink{
+  background-color: #000;
+  color:#fff;
+}
+ 
+ .questionLink {
+   display: block;
+   font-size: 18px;
+   font-weight: 500;
+   color: #222;
+   text-decoration: none;
+   transition: all 0.3s ease-in-out;
+ }
+ 
+ .questionLink:hover {
+   color: #ff6f61;
+ }
+ 
+ .answer {
+   margin-top: 10px;
+   font-size: 16px;
+   line-height: 1.5;
+   color: #666;
+ }
+ 
+ .bak {
+   height: 100px;
+   width: 100%;
+   margin-top: 50px;
+ }
+ .spacertop{
+  margin-bottom: 50px;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .pagination button{
+   left:50px;
+}
+}

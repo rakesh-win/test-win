@@ -1,0 +1,48 @@
+/* mentor.module.css */
+
+.mainform {
+   max-width: 800px;
+   margin: 0 auto;
+   padding: 40px;
+   border-radius: 8px;
+   background-color: #f8f8f8;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .mainform h2 {
+   text-align: center;
+   margin-bottom: 30px;
+   color: #333;
+ }
+ 
+ .mainform label {
+   font-weight: bold;
+   margin-bottom: 8px;
+   color: #333;
+ }
+ 
+ .mainform input,
+ .mainform select,
+ .mainform textarea {
+   width: 100%;
+   padding: 10px;
+   margin-bottom: 16px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   outline: none;
+   font-size: 16px;
+   color: #333;
+ }
+ 
+ .mainform textarea {
+   height: 120px;
+   resize: vertical;
+ }
+ 
+ .mainform select {
+   appearance: none;
+   background-color: #fff;
+ }
+ 
+
+ 
