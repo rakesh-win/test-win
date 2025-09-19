@@ -88,8 +88,12 @@ export default function LoyaltySection () {
     >
       {/* FAQ Section */}
       <Card sx={{ borderRadius: 2, bgcolor: '#fafafa' }}>
-        <CardContent>
-          <Typography variant='h6' sx={{ textAlign: 'center' }} gutterBottom>
+        <CardContent sx={{ pt: 2, pb: 1, px: 3 }}>
+          <Typography
+            variant='h6'
+            sx={{ textAlign: 'center', mt: 2 }}
+            gutterBottom
+          >
             Loyalty Points - FAQs
           </Typography>
           <ol style={{ paddingLeft: '20px', color: '#555', lineHeight: 1.6 }}>
@@ -111,7 +115,7 @@ export default function LoyaltySection () {
               Can I combine loyalty points with coupon codes?
               <br />
               <span style={{ fontSize: '14px', color: '#777' }}>
-                Yes. Discounts are applied first, followed by loyalty points.
+                Yes. Discounts are applied first, Followed by loyalty points.
               </span>
             </li>
             <li>
@@ -134,9 +138,9 @@ export default function LoyaltySection () {
         </CardContent>
       </Card>
 
-      {/* Points Log Section */}
+    {/* Points Log Section */}
       <Card sx={{ borderRadius: 2, bgcolor: '#fafafa' }}>
-        <CardContent>
+        <CardContent sx={{ pt: 3, pb: 0, px: 3 }}>
           <Typography variant='h6' sx={{ textAlign: 'center' }} gutterBottom>
             Loyalty Points Balance : {point.points || 0}
           </Typography>
@@ -149,7 +153,7 @@ export default function LoyaltySection () {
               </Typography>
             </center>
           ) : (
-            <Box sx={{ maxHeight: 300, overflowY: 'auto' }}>
+            <Box sx={{ maxHeight: 320, overflowY: 'auto' }}>
               <Box
                 component='table'
                 sx={{
@@ -170,15 +174,7 @@ export default function LoyaltySection () {
                     >
                       Course Name
                     </th>
-                    <th
-                      style={{
-                        padding: '8px',
-                        border: '1px solid #ddd',
-                        textAlign: 'center'
-                      }}
-                    >
-                      Taxes Paid
-                    </th>
+
                     <th
                       style={{
                         padding: '8px',
@@ -187,6 +183,15 @@ export default function LoyaltySection () {
                       }}
                     >
                       Exam Fees Paid
+                    </th>
+                    <th
+                      style={{
+                        padding: '8px',
+                        border: '1px solid #ddd',
+                        textAlign: 'center'
+                      }}
+                    >
+                      Taxes Paid
                     </th>
                     <th
                       style={{
@@ -256,6 +261,17 @@ export default function LoyaltySection () {
                               {course.name || '-'}
                             </td>
 
+                            <td
+                              style={{
+                                padding: '8px',
+                                border: '1px solid #ddd',
+                                textAlign: 'center'
+                              }}
+                            >
+                              {country === 'India' ? 'INR ' : 'USD '}
+                              {numberWithCommas(examFee)}
+                            </td>
+
                             {/* Show taxes only once per order */}
                             {logIdx === 0 && (
                               <td
@@ -276,17 +292,6 @@ export default function LoyaltySection () {
                                   : 0}
                               </td>
                             )}
-
-                            <td
-                              style={{
-                                padding: '8px',
-                                border: '1px solid #ddd',
-                                textAlign: 'center'
-                              }}
-                            >
-                              {country === 'India' ? 'INR ' : 'USD '}
-                              {numberWithCommas(examFee)}
-                            </td>
 
                             {/* Totals – only once per order */}
                             {logIdx === 0 && (

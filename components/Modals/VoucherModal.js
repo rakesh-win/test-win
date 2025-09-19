@@ -198,7 +198,7 @@ function VoucherModal ({ isOpen, onClose }) {
               style={inputStyle}
             />
             <button
-              style={buttonStyle}
+              className='default-btn-cart'
               onClick={handleSubmit}
               disabled={loading}
             >

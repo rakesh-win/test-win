@@ -109,7 +109,7 @@ export default function Loyalsidebardlayout () {
     if (typeof window !== 'undefined') {
       const savedCountry = localStorage.getItem('country')
       const id = localStorage.getItem('userid')
-      
+
       if (savedCountry) setCountry(savedCountry)
       if (id) setUserId(id)
     }
@@ -245,14 +245,13 @@ export default function Loyalsidebardlayout () {
   // ---------- UI meta ----------
 
   const categoryTitles = {
-    1: 'IT Service Management Courses',
     2: 'Security & Privacy Management Courses',
     3: 'IT Governance & Resilience Courses',
     4: 'Project, Program & Quality Management Courses',
     5: 'Career-Path Based Courses',
-    6: 'ISO Lead Auditor / Implementer Courses'
+    6: 'Lead Auditor / Implementer Courses',
+    1: 'IT Service Management Courses'
   }
-
   // ---------- Render ----------
 
   return (

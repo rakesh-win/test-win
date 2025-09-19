@@ -50,12 +50,8 @@ function FreeVoucher ({ free, voucherCode }) {
         every successful referral you’ll receive an{' '}
         <strong>Amazon Gift Voucher</strong> as a token of appreciation.
       </p>
-      <p style={{ marginBottom: '20px', fontSize: '15px', color: '#333' }}>
-        👉 Start referring today and enjoy learning + rewards together!{' '}
-      </p>
+   
 
-      {/* Show button only on /order-received page */}
-      {/* {router.pathname === '/order-received' && free === '1' && ( */}
       <center>
         <button
           className='default-btn-cart'
@@ -98,20 +94,20 @@ function FreeVoucher ({ free, voucherCode }) {
 
           {[
             {
-              q: ' How can I earn Amazon Gift Vouchers through referrals?',
-              a: `You can earn vouchers by referring our training programs to your friends, colleagues, or professional network. Once your referral successfully enrolls, you will receive an Amazon Gift Voucher as a reward.`
+              q: 'How can I earn Amazon Gift Vouchers through referrals?',
+              a: `You can earn vouchers by referring our training programs to your friends, colleagues or professional network. Once your referral successfully purchases a course from us, you will receive an Amazon Gift Voucher as a reward.`
             },
             {
               q: 'Who is eligible to participate in the referral program?',
-              a: `All enrolled participants are eligible to join the referral program. If you are currently pursuing a course with us, you can begin referring immediately..`
+              a: `All enrolled participants are eligible to join the referral program. If you are currently pursuing a course with us, You can begin referring immediately.`
             },
             {
-              q: 'How will I receive my Amazon Gift Voucher',
+              q: 'How will I receive my Amazon Gift Voucher?',
               a: `Your voucher will be delivered via email within 3 business days after your referral completes the enrollment process.`
             },
             {
               q: 'Is there a limit to the number of referrals I can make?',
-              a: `No, there is no limit. You will receive a voucher for each successful referral.`
+              a: `No there is no limit. You will receive a voucher for each successfull referral.`
             },
             {
               q: 'Do the vouchers have an expiry date?',
@@ -120,7 +116,7 @@ function FreeVoucher ({ free, voucherCode }) {
           ].map((item, idx) => (
             <div key={idx} style={{ marginBottom: '20px' }}>
               <p style={{ display: 'block', marginBottom: '6px' }}>
-                Q{idx + 1}: {item.q}
+                {idx + 1}: {item.q}
               </p>
               <p style={{ margin: 0, fontSize: '15px', color: '#555' }}>
                 A: {item.a}

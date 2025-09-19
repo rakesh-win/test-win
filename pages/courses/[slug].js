@@ -890,7 +890,7 @@ const Details = ({ course, user }) => {
               <span className='priceline'>
                 Lifetime access to eLearning content curated by industry experts
               </span>
-              <span className='priceline'>Test paper for self-evaluation</span>
+          <span className='priceline'>Test paper for self-evaluation</span>
 
               {oneCourse.examvoucher === 'included' ? (
                 <span className='priceline'>Exam voucher included</span>

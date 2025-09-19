@@ -1,0 +1,54 @@
+import React, { useState, useEffect } from "react";
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import axios from 'axios';
+import Link from "@/utils/ActiveLink";
+
+export default function Mobmenu() {
+  const [menuitems, setMenuitems] = useState([]);
+  const [menucatnames, setMenucatnames] = useState([]);
+
+  useEffect(() => {
+    const getMenuItems = async () => {
+      const url2 = `https://winupskill.in/api/api/menucats?visible=yes&sort_by=menuorder`;
+      const categoryResponse = await axios.get(url2);
+      setMenucatnames(categoryResponse.data.data);
+
+      const url = `https://winupskill.in/api/api/menus?type=web&sort_by=morder`;
+      const menuResponse = await axios.get(url);
+      setMenuitems(menuResponse.data.data);
+    };
+
+    getMenuItems();
+  }, []);
+
+  return (
+    <div>
+      {menucatnames.map((category, index) => (
+        <Accordion key={index} className="mobmenuitemtop">
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls={`panel${index}bh-content`}
+            id={`panel${index}bh-header`}
+          >
+            <Typography>{category.name}</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            {menuitems
+              .filter(menu =>  parseInt(menu.mcategory) === parseInt(category.id))
+              .map((menu, menuIndex) => (
+                <Link key={menuIndex} href={menu.mlink} activeClassName="active">
+                  <a className="mainmenuli">
+                    <span dangerouslySetInnerHTML={{ __html: menu.mname }} />
+                  </a>
+                </Link>
+              ))}
+          </AccordionDetails>
+        </Accordion>
+      ))}
+    </div>
+  );
+}
